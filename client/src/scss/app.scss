@@ -1,0 +1,14 @@
+@import 'libs/normalize';
+@import 'all';
+
+body {
+  background-color: #FFFFE0;
+}
+
+.wrapper {
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  margin: 0 auto;
+}

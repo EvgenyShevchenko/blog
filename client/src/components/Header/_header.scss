@@ -1,0 +1,24 @@
+.Header__wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Logo a{
+  font-weight: bold;
+  color: #006400;
+  font-size: 30px;
+}
+
+.Header__list{
+  display: flex;
+  font-weight: bold;
+}
+
+.Header__list li{
+  margin-right: 10%;
+}
+
+.Header__list li :hover{
+  color: #006400;
+}
