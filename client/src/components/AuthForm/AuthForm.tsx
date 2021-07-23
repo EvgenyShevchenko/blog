@@ -3,13 +3,15 @@ import Header from "../Header/Header";
 
 interface AuthFormProps {
     register: boolean
+    registerUser: any
+    login: any
 }
 
-const AuthForm: React.FC<AuthFormProps> = ({register}) => {
-    const[username,setUsername] = useState('')
+const AuthForm: React.FC<AuthFormProps> = ({register, registerUser, login}) => {
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [usernameDirty,setUsernameDirty] = useState(false)
+    const [usernameDirty, setUsernameDirty] = useState(false)
     const [emailDirty, setEmailDirty] = useState(false)
     const [passwordDirty, setPasswordDirty] = useState(false)
     const [usernameError, setUsernameError] = useState('Username не может быть пустым.')
@@ -25,7 +27,7 @@ const AuthForm: React.FC<AuthFormProps> = ({register}) => {
         }
     }, [emailError, passwordError])
 
-    const usernameHandler = (e:any) => {
+    const usernameHandler = (e: any) => {
         setUsername(e.target.value)
         if (e.target.value.length < 5 || e.target.value.length > 10) {
             setUsernameError('Username должен быть длиннее 5 меньше 10')
@@ -73,19 +75,35 @@ const AuthForm: React.FC<AuthFormProps> = ({register}) => {
         }
     }
 
+    const handlerSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault()
+        if (register) {
+            registerUser({
+                username,
+                email,
+                password,
+            })
+        } else {
+            login({
+                email,
+                password,
+            })
+        }
+    }
+
     return (
         <div>
             <Header/>
-            <form className="Login__form">
+            <form onSubmit={handlerSubmit} className="Login__form">
                 <h2 className="Login__title">{!register ? 'Login' : 'Register'}</h2>
                 {(usernameDirty && usernameError) && <div className='Login__error'>{usernameError}</div>}
-                {register? <input value={username}
-                       onChange={e => usernameHandler(e)}
-                       onBlur={e => blurHandler(e)}
-                       className='Login__input'
-                       name='username'
-                       type='text'
-                       placeholder='Enter your Username...'/>:''}
+                {register ? <input value={username}
+                                   onChange={e => usernameHandler(e)}
+                                   onBlur={e => blurHandler(e)}
+                                   className='Login__input'
+                                   name='username'
+                                   type='text'
+                                   placeholder='Enter your Username...'/> : ''}
                 {(emailDirty && emailError) && <div className='Login__error'>{emailError}</div>}
                 <input value={email}
                        onChange={e => emailHandler(e)}
@@ -102,7 +120,8 @@ const AuthForm: React.FC<AuthFormProps> = ({register}) => {
                        name='password'
                        type='password'
                        placeholder='Enter your Password...'/>
-                <button disabled={!formValid} className='Login__button' type='submit'>{!register ? 'Login' : 'Registration'}</button>
+                <button disabled={!formValid} className='Login__button'
+                        type='submit'>{!register ? 'Login' : 'Registration'}</button>
             </form>
         </div>
     )

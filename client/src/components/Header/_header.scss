@@ -4,25 +4,25 @@
   align-items: center;
   background-color: white;
   padding: 10px;
-border-radius: 25px;
+  border-radius: 25px;
 }
 
-.Logo a{
+.Logo a {
   font-weight: bold;
-  color: #006400;
+  color: #5cb85c;
   font-size: 30px;
 }
 
-.Header__list{
+.Header__list {
   display: flex;
   justify-content: space-around;
   font-weight: bold;
 }
 
-.Header__list li{
+.Header__list li {
   margin-right: 10%;
 }
 
-.Header__list li :hover{
+.Header__list li :hover {
   color: #006400;
 }
