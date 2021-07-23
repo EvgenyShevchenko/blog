@@ -4,10 +4,12 @@
   align-items: center;
   text-align: center;
   margin: 0 auto;
+  padding-top: 50px;
 }
 
 .Login__title {
-  margin-bottom: 10%;
+  margin-bottom: 30px;
+  color: darkgreen;
 }
 
 .Login__input {
@@ -22,16 +24,22 @@
   margin-bottom: 20px;
 }
 
-.Login__input:active{
+.Login__error {
+  color: red;
+  margin-bottom: 1%;
+}
+
+.Login__input:focus {
   border: 2px solid green;
 }
 
-.Login__input:hover{
+.Login__input:hover {
   cursor: pointer;
 }
-.Login__button{
-  width: 260px;
- padding: 10px;
+
+.Login__button {
+  width: 200px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,9 +50,10 @@
   font-weight: bold;
 }
 
-.Login__button:hover{
-  background-color: lightgreen;
+.Login__button:hover {
+  background-color: darkgreen;
   cursor: pointer;
+  color: white;
 }
 
 @media (max-width: 576px) {

@@ -1,7 +1,10 @@
 .Header__wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  background-color: white;
+  padding: 10px;
+border-radius: 25px;
 }
 
 .Logo a{
@@ -12,6 +15,7 @@
 
 .Header__list{
   display: flex;
+  justify-content: space-around;
   font-weight: bold;
 }
 

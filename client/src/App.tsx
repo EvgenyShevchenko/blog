@@ -2,7 +2,7 @@ import React from 'react';
 import './scss/app.scss';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Login from "./components/Login/Login";
+import Login from "./components/AuthForm/AuthForm";
 import Register from "./components/Register/Register";
 
 function App() {
